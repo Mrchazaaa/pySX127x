@@ -101,6 +101,10 @@ class BOARD:
         GPIO.add_event_detect(dio_number, GPIO.RISING, callback=callback)
 
     @staticmethod
+    def add_event_detect(dio_number):
+        GPIO.remove_event_detect(dio_number)
+
+    @staticmethod
     def add_events(cb_dio0, cb_dio1, cb_dio2, cb_dio3, cb_dio4, cb_dio5, switch_cb=None):
         BOARD.add_event_detect(BOARD.DIO0, callback=cb_dio0)
         BOARD.add_event_detect(BOARD.DIO1, callback=cb_dio1)
