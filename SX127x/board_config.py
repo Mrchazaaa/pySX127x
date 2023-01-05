@@ -45,7 +45,7 @@ class BOARD:
     spi = None
     SPI_BUS=0
     SPI_CS=0
-    
+
     # tell pySX127x here whether the attached RF module uses low-band (RF*_LF pins) or high-band (RF*_HF pins).
     # low band (called band 1&2) are 137-175 and 410-525
     # high band (called band 3) is 862-1020
@@ -63,7 +63,7 @@ class BOARD:
         GPIO.output(BOARD.LED, 0)
         GPIO.output(BOARD.RST, 1)
         # switch
-        #GPIO.setup(BOARD.SWITCH, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) 
+        #GPIO.setup(BOARD.SWITCH, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
         # DIOx
         for gpio_pin in [BOARD.DIO0, BOARD.DIO1, BOARD.DIO2, BOARD.DIO3]:
             GPIO.setup(gpio_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -101,7 +101,7 @@ class BOARD:
         GPIO.add_event_detect(dio_number, GPIO.RISING, callback=callback)
 
     @staticmethod
-    def add_event_detect(dio_number):
+    def remove_event_detect(dio_number):
         GPIO.remove_event_detect(dio_number)
 
     @staticmethod
@@ -131,7 +131,7 @@ class BOARD:
         """
         GPIO.output(BOARD.LED, 0)
         return 0
-    
+
     @staticmethod
     def reset():
         """ manual reset
@@ -154,11 +154,11 @@ class BOARD:
             time.sleep(time_sec)
             BOARD.led_on()
         BOARD.led_off()
-        
 
-        
-        
-        
+
+
+
+
 # BOARD2 configuration here -----------------------------------------------------------------------------
 class BOARD2:
     """ Board2 initialisation/teardown and pin configuration is kept here.
@@ -167,7 +167,7 @@ class BOARD2:
     """
     # Note that the BCOM numbering for the GPIOs is used.
     DIO0 = 23   # RaspPi GPIO 23
-    DIO1 = 24   # RaspPi GPIO 24                                                                                         
+    DIO1 = 24   # RaspPi GPIO 24
     DIO2 = 25   # RaspPi GPIO 25
     DIO3 = 5   # RaspPi GPIO 5
     RST  = 6   # RaspPi GPIO 6
@@ -178,7 +178,7 @@ class BOARD2:
     spi = None
     SPI_BUS=0
     SPI_CS=1
-    
+
     # tell pySX127x here whether the attached RF module uses low-band (RF*_LF pins) or high-band (RF*_HF pins).
     # low band (called band 1&2) are 137-175 and 410-525
     # high band (called band 3) is 862-1020
@@ -196,7 +196,7 @@ class BOARD2:
         GPIO.output(BOARD2.LED, 0)
         GPIO.output(BOARD2.RST, 1)
         # switch
-        #GPIO.setup(BOARD2.SWITCH, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) 
+        #GPIO.setup(BOARD2.SWITCH, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
         # DIOx
         for gpio_pin in [BOARD2.DIO0, BOARD2.DIO1, BOARD2.DIO2, BOARD2.DIO3]:
             GPIO.setup(gpio_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -260,7 +260,7 @@ class BOARD2:
         """
         GPIO.output(BOARD2.LED, 0)
         return 0
-    
+
     @staticmethod
     def reset():
         """ manual reset
