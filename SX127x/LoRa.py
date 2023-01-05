@@ -128,12 +128,11 @@ class LoRa(object):
     # Overridable functions:
 
     def dispose(self):
-        BOARD.remove_event_detect(self._dio0)
-        BOARD.remove_event_detect(self._dio1)
-        BOARD.remove_event_detect(self._dio2)
-        BOARD.remove_event_detect(self._dio3)
-        BOARD.remove_event_detect(self._dio4)
-        BOARD.remove_event_detect(self._dio5)
+        BOARD.remove_event_detect(BOARD.DIO0)
+        BOARD.remove_event_detect(BOARD.DIO1)
+        BOARD.remove_event_detect(BOARD.DIO2)
+        BOARD.remove_event_detect(BOARD.DIO3)
+        BOARD.remove_event_detect(BOARD.SWITCH)
 
     def on_rx_done(self):
         pass
